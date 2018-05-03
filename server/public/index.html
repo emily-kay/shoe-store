@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <title>Shoe Shop</title>
+</head>
+<body ng-app="ShoeApp">
+    <div ng-controller="ShoeController as vm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shoe in vm.shoeArray">
+                    <td>{{shoe.name}}</td>
+                    <td>{{shoe.cost}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <form ng-submit="vm.createShoe()">
+            <input type="text" ng-model="vm.newShoe.name" placeholder="Shoe">
+            <input type="text" ng-model="vm.newShoe.cost" placeholder="Cost">
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
